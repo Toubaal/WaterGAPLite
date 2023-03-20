@@ -10,7 +10,6 @@ init.setPars <- function(){
   parTable[2,]  <- c("alphaHumid", 1.26)
   parTable[3,]  <- c("maxDailyPET_humid", 10)
   parTable[4,]  <- c("maxDailyPET_arid", 20)
-  parTable[5,]  <- c("Splitfactor", 1.0)
   
   parTable[6,]  <- c("maxCanopyStoragePerLAI", 0.3)
   parTable[7,]  <- c("canopyEvapoExp", 2/3)

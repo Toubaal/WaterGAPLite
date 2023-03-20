@@ -95,7 +95,7 @@ WaterUseCalcDaily <- function(waterUseType, dailyUse, year, month, StartYear, In
 #' @description {
 #' daily routine for each cell
 #' this routine is already validated against WG3 simulation for a small basin in South America
-#' especially the snow routine and immediate RunOff generation are NOT validated therefore 
+#' especially the snow routine and immediate RunOff generation are NOT validated therefore
 #' have to check the simulation results also for other basins to assure a good match with WG3
 #' e.g. for european basins with snow processes and sealed areas! (Bayern?) }
 #' @param timestring Datevector with dates of simulation period

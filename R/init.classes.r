@@ -91,7 +91,6 @@ init.classes <- function() {
              loc_storageFactor = "numeric",
              glo_storageFactor = "numeric",
              k_g = "numeric",
-             Splitfactor = "numeric",
              defaultRiverVelocity = "numeric",
              evapoReductionExpReservoir = "numeric",
 

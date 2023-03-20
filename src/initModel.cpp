@@ -17,7 +17,6 @@ int flowVelocityType;
 int GapYearType;
 int WaterUseAllocationType;
 int ReservoirType;
-int splitType;
 int calcLong;
 int useSystemVals;
 
@@ -81,7 +80,6 @@ NumericVector G_BANKFULL;
 NumericVector G_riverSlope;
 NumericVector G_riverRoughness;
 
-NumericVector Splitfactor;
 
 double maxCanopyStoragePerLAI; // 0.3 mm
 double canopyEvapoExp; // 0.6666667 [-]
@@ -112,9 +110,8 @@ void defSettings(NumericVector Settings){
 	flowVelocityType = Settings[2];
 	GapYearType = Settings[3];
 	ReservoirType = Settings[4];
-	splitType = Settings[5];
-	calcLong = Settings[6];
-	useSystemVals = Settings[7];
+	calcLong = Settings[5];
+	useSystemVals = Settings[6];
 }
 
 //' @title detLAIdaily
@@ -290,7 +287,6 @@ void initModel(List ListConst){
 	G_riverSlope = as<NumericVector>(ListConst["G_riverSlope"]);
 	G_riverRoughness = as<NumericVector>(ListConst["G_riverRoughness"]);
 
-	Splitfactor = as<NumericVector>(ListConst["Splitfactor"]);
 
 	Info_GW = as<NumericMatrix>(ListConst["Info_GW"]);
 	Info_SW = as<NumericMatrix>(ListConst["Info_SW"]);

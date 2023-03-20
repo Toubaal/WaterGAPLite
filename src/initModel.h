@@ -19,7 +19,6 @@ extern int GapYearType;
 extern int flowVelocityType;
 extern int WaterUseAllocationType;
 extern int ReservoirType;
-extern int splitType;
 extern int calcLong;
 extern int useSystemVals;
 
@@ -87,7 +86,6 @@ extern NumericVector G_riverLength;
 extern NumericVector G_riverSlope;
 extern NumericVector G_riverRoughness;
 
-extern NumericVector Splitfactor;
 
 extern double maxCanopyStoragePerLAI; // 0.3 mm
 extern double canopyEvapoExp; // 0.6666667 [-]

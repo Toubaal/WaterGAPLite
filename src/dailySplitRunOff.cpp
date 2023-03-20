@@ -33,23 +33,16 @@ void dailySplitRunOff(int day, Date SimDate, const NumericVector daily_runoff, c
 	
 	for (int cell = 0; cell < array_size; cell++){
 		
-		if (splitType == 0) {
-			//======================== Groundwater =======================================
-			daily_gw_recharge[cell] = min(G_RG_max[cell]/100., G_gwFactor[cell] * daily_runoff[cell]); //geting RG for cell and day 
-			//checking special conditions for arid regions
-			if ( (G_ARID_HUMID[cell] == 2) & (G_TEXTURE[cell] < 21) & (dailyPrec[cell] < pcrit)){
-				daily_gw_recharge[cell] = 0.;      //reducing gw-recharge in arid regions with medium to coarse texture, when there is no heavy rain
-			}
-			
-		} else {
-			daily_gw_recharge[cell] = min(G_RG_max[cell]/100.*Splitfactor[cell], G_gwFactor[cell]*Splitfactor[cell]*daily_runoff[cell]); //min(G_RG_max[cell]/100., Splitfactor[cell]*daily_runoff[cell]); //
-			//checking special conditions for arid regions
-			if ( (G_ARID_HUMID[cell] == 2) & (G_TEXTURE[cell] < 21) & (dailyPrec[cell] < pcrit)){
-				daily_gw_recharge[cell] = 0.;      //reducing gw-recharge in arid regions with medium to coarse texture, when there is no heavy rain
-			}
+
+		//======================== Groundwater =======================================
+		daily_gw_recharge[cell] = min(G_RG_max[cell]/100., G_gwFactor[cell] * daily_runoff[cell]); //geting RG for cell and day 
+		//checking special conditions for arid regions
+		if ( (G_ARID_HUMID[cell] == 2) & (G_TEXTURE[cell] < 21) & (dailyPrec[cell] < pcrit)){
+			daily_gw_recharge[cell] = 0.;      //reducing gw-recharge in arid regions with medium to coarse texture, when there is no heavy rain
 		}
+			
 		
-		//grodunwater routing - would be better with els equation so there is not such a discontinuity
+		//groundwater routing - would be better with els equation so there is not such a discontinuity
 		G_groundwater[cell] += daily_gw_recharge[cell]; //mm
 		G_dailyLocalGWRunoff[cell] = max(k_g * G_groundwater[cell], 0.); // so when there is negative groundwater storage than there is no run-off[mm]
 		G_groundwater[cell] -= G_dailyLocalGWRunoff[cell]; //mm

@@ -102,7 +102,6 @@ basin.prepare_run <- function(basin_object,
   basin_list[["evapoReductionExpReservoir"]] <- basin_object@evapoReductionExpReservoir
   basin_list[["G_RES_TYPE"]] <- basin_object@G_RES_TYPE
   basin_list[["G_ALLOC_COEFF.20"]] <- basin_object@G_ALLOC_COEFF.20
-  basin_list[["Splitfactor"]] <- basin_object@Splitfactor
 
   basin_list[["G_riverLength"]] <- basin_object@G_riverLength
   basin_list[["G_riverSlope"]] <- basin_object@G_riverSlope

@@ -43,8 +43,6 @@ init.set_pars_basin <- function(basin_object, lai_info, lct_info) {
   basin_object@degreeDayFactor <- unlist(lct_info[landcover, 5],
                                           use.names = FALSE)
 
-  #SplitFactpr
-  basin_object@Splitfactor <- rep(as.numeric(par_table[5, 2]), length(landcover))
 
   #Soil informatiom
   if (sum(basin_object@G_BATJES < 0) > 0) {
