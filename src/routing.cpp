@@ -102,6 +102,7 @@ List routing(DateVector SimPeriod, NumericMatrix surfaceRunoff, NumericMatrix Gr
 	NumericMatrix EvapoRes(ndays, array_size);    // Evaporatiom from Reservoir
 	NumericMatrix InflowRes(ndays, array_size);   // Inflow to Reservoir  Res_overflow
 	NumericMatrix OverflowRes(ndays, array_size); // overflow from Reservoir when precipitation above Reservoir and Inflow are to high
+    NumericVector K_release (array_size);
 
 	//global wetlands
 	NumericMatrix OverflowgloWetland(ndays, array_size); // special overflow, when S > Smax
@@ -208,7 +209,7 @@ List routing(DateVector SimPeriod, NumericMatrix surfaceRunoff, NumericMatrix Gr
 				if (G_RESAREA[cell] > 0) {
 					out_res = routingResHanasaki(day, cell, SimDate, PETWater, PrecWater, out_glolake,
 							Res_outflow, Res_overflow, S_ResStorage, Res_evapo, Res_inflow,
-							dailyUse, MeanDemand);
+							dailyUse, MeanDemand, K_release);
 				} else {
 					out_res = out_glolake;
 				}
@@ -242,7 +243,7 @@ List routing(DateVector SimPeriod, NumericMatrix surfaceRunoff, NumericMatrix Gr
 					RiverVelocityStat[day] = riverVelocity / 86.4 ; // m/s
 				}
 			} // cell loop
-			
+
 
 			//Abstracting Water Use for surface water
 			// river --> reservoir --> global lakes -->local lakes
